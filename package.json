@@ -1,0 +1,94 @@
+{
+  "name": "daskeyboard-applet-api-request",
+  "displayName": "API Request Checker",
+  "version": "1.0.0",
+  "description": "Sends API-Requests to a custom API and displays the response.",
+  "longDescription": "Monitors the status of a specific API endpoint on a given interval and updating a key color to show HTTP.SUCCESS or not. Usefull for healthcheck requests.",
+  "officialProductName": "API Request Checker",
+  "appUrl": "",
+  "publisher": "tobiasholkefhswf",
+  "isSingleton": false,
+  "videoUrl": "",
+  "icon": "assets/icon.png",
+  "image": "assets/q-applet-server-ping-image.png",
+  "authorName": "tobiasholkefhswf",
+  "authorUrl": "https://github.com/tobiasholkefhswf",
+  "issuesUrl": "https://github.com/tobiasholkefhswf/-daskeyboard-applet-api-request/issues",
+  "homePageUrl": "https://github.com/tobiasholkefhswf/-daskeyboard-applet-api-request/",
+  "developerRepoUrl": "https://github.com/tobiasholkefhswf/-daskeyboard-applet-api-request/",
+  "licenseUrl": "https://github.com/tobiasholkefhswf/-daskeyboard-applet-api-request/blob/main/LICENSE",
+  "changelogUrl": "CHANGELOG.md",
+  "readMeUrl": "README.md",
+  "readMeEndUserUrl": "README_ENDUSER.md",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "tobiasholkefhswf",
+      "url": "https://github.com/tobiasholkefhswf"
+    }
+  ],
+  "dependencies": {
+    "daskeyboard-applet": "^2.11.5",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
+  },
+  "engines": {
+    "das-keyboard-q": "3.1.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "qConfig": {
+    "geometry": {
+      "width": 1,
+      "height": 1
+    },
+    "questions": [
+      {
+        "key": "serverUrl",
+        "label": "API-GET URL",
+        "help": "This is the server url that will be used to check status. If status is ok (200) success color will be displayed else error color will be displayed",
+        "required": true,
+        "order": 10,
+        "controlType": "textbox",
+        "placeholder": "https://www.google.com"
+      },
+      {
+        "key": "requestInterval",
+        "label": "Send request frequency (seconds)",
+        "help": "How often (in seconds) to send the request (Default: 60)",
+        "required": false,
+        "order": 20,
+        "controlType": "textbox",
+        "placeholder": "60"
+      },
+      {
+        "key": "successColor",
+        "label": "Success color",
+        "help": "Displayed color when request returns 200 (Default: green/#00ff00)",
+        "required": false,
+        "order": 30,
+        "controlType": "textbox",
+        "placeholder": "#00ff00"
+      },
+      {
+        "key": "failureColor",
+        "label": "Error Color",
+        "help": "Displayed color when request does not return 200 (Default: red/#ff0000)",
+        "required": false,
+        "order": 40,
+        "controlType": "textbox",
+        "placeholder": "#ff0000"
+      }
+    ],
+    "requirements": {
+      "applet": {
+        "serverUrl": "string"
+      }
+    }
+  },
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  }
+}

@@ -2,7 +2,7 @@
 
 Monitors the status of a specific API endpoint on a given interval and updating a key color to show HTTP.SUCCESS or not. Usefull for healthcheck requests.
 
-[GitHub repository](https://github.com/tobiasholkefhswf/-daskeyboard-applet-api-request)
+[GitHub repository](https://github.com/tobiasholkefhswf/daskeyboard-applet-api-request)
 
 ## Example
 

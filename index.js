@@ -15,20 +15,22 @@ class ApiRequest extends q.DesktopApp {
     constructor() {
         super();
 
+        logger.info("API-Request started");
+
         let interval;
-        if (this.config.requestInterval) {
-            logger.info("API Request: No interval present")
+        if (this.config.requestInterval !== "undefined") {
             interval = 1000 * this.config.requestInterval;
         } else {
-            logger.info("API Request: Using default interval")
-            interval = 1000;
+            interval = 1000*60;
         }
+        logger.info("API-REQUEST: Interval: "+interval)
         this.pollingInterval = interval;
     }
 
     async run() {
         return ping(this.serverUrl)
             .then(response => {
+                logger.info("API-REQUEST: Request: "+response)
                 let color = this.getStatusColor(response.statusCode);
                 let statusString = this.getStatusString(response.statusCode);
                 return ApiRequest.buildKeyboardSignal(color, this.serverUrl, statusString, response.statusCode);
@@ -52,7 +54,7 @@ class ApiRequest extends q.DesktopApp {
 
 
     getStatusString(statusCode) {
-        return statusCode === 200? 'Success' : 'Failure';
+        return statusCode === 200 ? 'Success' : 'Failure';
     }
 
     getStatusColor(statusCode) {

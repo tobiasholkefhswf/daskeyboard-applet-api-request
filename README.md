@@ -19,6 +19,9 @@ Requires a Das Keyboard Q Series: www.daskeyboard.com.
 Installation, configuration and uninstallation of applets is done within
 the Q Desktop application (https://www.daskeyboard.com/q)
 
+## Contributions
+
+Pull requests are welcome. Feel free to give me feedback.
 
 ## Copyright / License
 
